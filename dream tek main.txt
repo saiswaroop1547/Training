@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int nod,associateId;
+        String associateName;
+        System.out.println("Enter the associate id:");
+        associateId=sc.nextInt();
+        
+        System.out.println("Enter the associate name:");
+        associateName=sc.next();
+        System.out.println("Enter the number of days:");
+        nod=sc.nextInt();
+        Associate asc=new Associate(associateId,associateName);
+        asc.trackAssociateStatus(nod);
+        
+    }
+    
+}

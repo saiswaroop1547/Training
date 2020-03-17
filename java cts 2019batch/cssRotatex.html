@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  width: 300px;
+  height: 100px;
+  background-color: yellow;
+  border: 1px solid black;
+animation-name: example;
+  animation-duration:20s;
+  animation-direction:alternate-reverse;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:green; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:yellow; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+
+#myDiv {
+  transform: rotateX(360deg); /* Standard syntax */
+}
+</style>
+</head>
+<body>
+
+<h1>The rotateX() Method</h1>
+<p>The rotateX() method rotates an element around its X-axis at a given degree.</p>
+
+<div>
+This a normal div element.
+</div>
+
+<div id="myDiv">
+This div element is rotated 190 degrees.
+</div>
+
+<p><b>Note:</b> Internet Explorer 9 (and earlier versions) does not support the rotateX() method.</p>
+
+</body>
+</html>

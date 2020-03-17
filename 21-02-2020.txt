@@ -1,0 +1,112 @@
+SpringBased Stereo type annotaions:-
+------------------------------------------------------------
+
+@Component
+
+it will automatically scans the annotated  data/classes in the appliaction and  interpret/fetches the data/classes needed
+
+<context:component-scan base-package="com.demo.service"/>
+
+.xml file
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:component-scan base-package="annotations" />
+
+</beans>
+
+a class with annotation component
+---------------------------------
+package annotations;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class FootBallCoach 
+{
+public void getFoot()
+{
+	System.out.println("hi how r u man");
+}
+}
+another class with component annotation
+---------------------------------------
+package annotations;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class TenniesCoach 
+{
+	public String getDailyWorkout() 
+	{
+		return "Practice your backhand volley";
+	}
+		
+}
+main class to execute the above programs
+-----------------------------------------
+package annotations;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestTenniesCoach {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("applicationComponent.xml");
+		TenniesCoach tc=ctx.getBean(TenniesCoach.class);
+		FootBallCoach fcoach=ctx.getBean(FootBallCoach.class);
+		fcoach.getFoot();
+		System.out.println(tc.getDailyWorkout());
+	}
+
+}
+
+Usage  of the annotaion coponent with an alias name 
+like 
+@Component("myCoach") where as the myCoach is the explicit alias name that we have given to the 
+class when ever the class name is to lengthy then we can use the alias names with the component annotation
+	   ----------
+where as by default it takes the class name of that bean with lower camel case format
+
+context.getbean("myCoach",javafile.class);
+
+@Autowired
+----------
+
+
+
+
+
+
+EventHandling
+-------------
+
+In applicationContext  is provided by using ApplicationEvent class and 
+ApplicationListener Interface 
+
+ContextRefreshedEvent
+ContextStartedEvent
+ContextStoppedEvent
+ContextClosedEvent
+RequestHandledEvent
+
+
+ConfigurableApplicationContext
+
+c.start();
+c.stop();
+
+
+
+

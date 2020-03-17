@@ -1,0 +1,258 @@
+Functions:-from java9 function is considered as an object
+syntax:-
+-------
+	function func_name(para1,para2,para3....para)
+	{
+		//statements;
+		[return value];
+	}
+
+Javascript Function Object:-
+Syntax:-
+-------
+	new Function([arg1[],arg2[],....argn[]],functionBody)
+	
+functionBody-it represents the function defination
+
+example1:-
+--------
+var person
+{
+firstName:"Omsaiswaroop";
+secondName:"Gundala";
+fullName:function()
+{
+return this.firstName+""+secondName;
+}
+}
+person.fullName();
+
+example2:-
+--------
+var person
+{
+fullName:function()
+{
+return this.firstName+""+this.secondName;
+}
+}
+var person2
+{
+firstName:"saiswaroop";
+secondName:"om";
+}
+var person1
+{
+firstName:"Omsaiswaroop";
+secondName:"Gundala";
+}
+
+var name=person.fullName.call(person1);
+document.writeln("the full name is"+ name);
+
+example3:-
+--------
+
+var person
+{
+fullName:function(city,country)
+{
+return this.firstName+""+this.secondName+""+city+""+country+;
+}
+}
+var person2
+{
+firstName:"saiswaroop";
+secondName:"om";
+}
+var person1
+{
+firstName:"Omsaiswaroop";
+secondName:"Gundala";
+}
+
+var name=person.fullName.call(person1,swedan,asia);
+document.writeln("the full name is"+ name);
+
+
+var name=person.fullName.apply(person1,[swedan,asia]);
+
+
+call and apply will bind the data internally
+call method will take the parameters directly
+apply method will take the parameters as an array
+
+
+
+
+
+javascript object:-
+------------------
+1.by object literal:-simplest form of creating objects
+syntax:-
+	object={property1:value1,property2:value2,.......propertyn:valuen,};
+	emp={id=844345,name:swaroop,salary:21900};
+2.by creating instance of Object directly using new keyword
+syntax:-
+	var objectname=new object();
+	var emp=new emp();
+	var.id=202;
+	var.name=swaroop;
+	var.salary=21900;
+3.by using an object constructer:-
+syntax:-
+	function emp(id,name,salary)
+	{
+	this.emp(id);
+	}
+	e=new emp("","","");
+	document.writeln(e.id+""++""+);
+
+Arrays:-
+------
+var arrayname[value1,value2,......value3];
+
+
+methods in array:-
+----------------
+
+delete deletes a character based on index value
+drawback is it leaves the sapce at the deleted index position and 
+
+delete arrayname[index];
+delete arr[2]
+
+push
+
+arr.push(str);
+
+pop removes the last one
+
+var str=arr.pop();
+
+shift removes the first one
+
+arr.shift();
+
+unshift
+
+arr=["",""]
+arr.length;----->2
+var k=arr.unshift("sai");
+arr.length;------>3
+
+splice
+
+var id=["1","2","3","4","5"];
+splice[2];
+
+concatinate
+
+var arr3=arr1.concat(arr2);--->arr3=arr1+arr2;
+
+sort
+
+arr=[10,20,110,35,255,47];
+arr.sort()
+arr=[];
+
+
+reverse
+
+arr.reverse()
+
+find
+
+find()
+
+find index
+
+findIndex()
+
+includes
+
+includes()
+
+indexOf()
+
+join()
+
+lastIndexOf();
+
+map()
+
+
+string object
+
+substr()
+
+slice()
+
+toLowerCase()
+
+toUpperCase()
+
+toString()
+
+valueOf()
+
+
+
+math object
+
+abs()
+
+atan()
+
+cos()
+
+cosh()
+
+boolean object
+
+toSource()---->returns the source to boolean 
+
+toString()--->converts boolean into string
+
+valueOf()
+
+
+window object
+
+alert() alert will simply say ok
+
+confirm()  says that the message is true or false
+
+prompt()
+
+open() opens any site or webpage in the window
+
+close()
+
+setTimeout() to perform some event after a particular time period
+
+window objects
+
+history object--->maintained in array format
+
+forward()---> transfer control to the next page
+
+backword()---->previous page
+
+go()---->it goes in both directions like -1,-2 and 1,2 and current page is 0
+
+navigator objects---> used to find the browser related data
+
+appName
+appCodeName
+mimeTypes
+paltform
+appVersion
+cookiesEnabled
+
+
+
+Document object model:-(DOM)
+platform and language neutral interface
+that allows programs and scripts to dynamically access and update the content,structure,and the style of the document
+

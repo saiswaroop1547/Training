@@ -1,0 +1,29 @@
+Map
+---
+map is not a sub child of collection interface
+
+map is a 2d object
+
+represents in the form of (key,value) pair
+
+can hold the references of other collections objects
+
+ecah map key value pair in the map is known as entry
+
+map is collection of entries
+
+methods in map
+
+ V put(Object key,Object value)
+
+ void putAll(Map map)
+
+ V putIfAbsent(key,value)
+
+ V.remove(key)
+ 
+ remove(key,value)
+ entrySet();
+clear();
+
+

@@ -1,0 +1,16 @@
+git config --global user.name "saiswaroop1547"
+git config --global user.email "saiswaroop1547@gmail.com"
+
+
+
+echo "# Training" >> README.md
+--->git init
+--->git add README.md
+--->git commit -m "first commit"
+--->git remote add origin https://github.com/saiswaroop1547/Training.git
+git push -u origin master
+…or push an existing repository from the command line
+git remote add origin https://github.com/saiswaroop1547/Training.git
+---->git push -u origin master
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.

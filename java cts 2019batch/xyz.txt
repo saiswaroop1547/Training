@@ -1,0 +1,4 @@
+class 
+object 
+and its memory allocations
+static class object notations

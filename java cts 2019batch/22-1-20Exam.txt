@@ -1,0 +1,160 @@
+create table air_ticket_info(TICKET_ID VARCHAR(10) PRIMARY KEY,
+PROFILE_ID VARCHAR(10),FOREIGN KEY(PROFILE_ID) REFERENCES air_passenger_profile(PROFILE_ID),
+FLIGHT_ID VARCHAR(10),
+FLIGHT_DEPARTURE_DATE DATE,
+STATUS VARCHAR(10),FOREIGN KEY(FLIGHT_ID) REFERENCES air_flight(FLIGHT_ID));
+
+
+
+
+CREATE TABLE air_passenger_profile(PROFILE_ID VARCHAR(10) PRIMARY KEY,
+PASSWORD VARCHAR(10),
+FIRST_NAME VARCHAR(10),
+LAST_NAME VARCHAR(10),
+ADDRESS VARCHAR(100),
+MOBILE_NUMBER BIGINT(10),
+EMAIL_ID VARCHAR(30));
+
+
+CREATE TABLE air_flight_details(FLIGHT_ID VARCHAR(10),
+FLIGHT_DEPARTURE_DATE DATE,
+PRICE DECIMAL(8,2),
+AVILABLE_SEATS INT(11),FOREIGN KEY(FLIGHT_ID) REFERENCES air_flight(FLIGHT_ID));
+
+
+CREATE TABLE air_flight(FLIGHT_ID VARCHAR(10) PRIMARY KEY,
+AIRLINE_ID VARCHAR(10),
+AIRLINE_NAME VARCHAR(30),
+FROM_LOCATION VARCHAR(20),
+TO_LOCATION VARCHAR(20),
+DEPARATURE_TIME TIME,
+ARRIVAL_TIME TIME,
+DURATION TIME,
+TOTAL_SEATS INT(11));
+
+CREATE TABLE air_credit_card_details(PROFILE_ID VARCHAR(10),FOREIGN KEY(PROFILE_ID) REFERENCES air_passenger_profile(PROFILE_ID) ,
+CARD_NUMBER BIGINT(16),CARD_TYPE VARCHAR(10),
+EXPIRATION_MONTH INT(2),
+EXPIRATION_YEAR INT(4));
+
+
+
+
+INSERT INTO  air_flight  VALUES 
+(3172, 'AR342', 'fgh', 'kolkata', 'chennai', '11:30:00', '13:00:00', '1:30:00', 100), 
+(3071, 'JT564', 'jkl', 'chennai', 'delhi', '08:00:00', '10:00:00', '2:00:00', 100), 
+(3170, 'DT345', 'xyz', 'delhi', 'kolkata', '21:00:00', '22:30:00', '1:30:00', 100), 
+(3175, 'MJ654', 'abc', 'chennai', 'hyderabad', '15:00:00', '16:00:00', '1:00:00', 200), 
+(3176, 'MH370', 'def', 'kochi', 'chennai', '18:00:00', '19:05:00', '1:05:00', 100), 
+(3177, 'MH45',  'fgh', 'delhi', 'kochi', '19:00:00', '21:00:00', '2:00:00', 200), 
+(3174, 'MH321', 'xyz', 'kolkata', 'delhi', '0:00:00', '2:00:00', '2:00:00', 100), 
+(3179, 'JT435', 'abc', 'chennai', 'kolkata', '14:00:00', '15:00:00', '1:00:00', 100), 
+(3180, 'JT456', 'ijk', 'kolkata', 'kochi', '5:00:00', '5:45:00', '0:45:00', 200);
+
+
+
+
+
+
+
+
+
+
+SELECT f.flight_id,f.from_location,f.to_location, 
+monthname(af.flight_departure_date) Month_Name, 
+AVG(price) Average_Price FROM air_flight f JOIN air_flight_details af 
+ON f.flight_id = af.flight_id WHERE f.airline_name = 'abc' 
+GROUP BY f.flight_id,f.from_location,f.to_location,Month_Name  
+ORDER BY f.flight_id, Month_Name
+
+
+
+SELECT count(flight_id) FLIGHT_COUNT FROM air_flight  
+WHERE from_location='CHENNAI'  
+AND deparature_time BETWEEN '06:00:00' AND '18:00:00'; 
+
+
+
+
+
+
+
+
+
+SELECT flight_id,from_location,to_location,Deparature_Time, 
+CASE 
+WHEN deparature_time BETWEEN ('05:00:01') AND ('12:00:00') 
+THEN 'Morning' 
+WHEN deparature_time BETWEEN ('12:00:01') AND ('18:00:00') 
+THEN 'AfterNoon' 
+WHEN deparature_time BETWEEN ('18:00:01') AND ('24:00:00') 
+THEN 'Evening' 
+WHEN deparature_time='00:00:00' 
+THEN 'Evening' 
+WHEN deparature_time BETWEEN ('00:00:01') AND ('05:00:00') 
+THEN 'Night' 
+END Time_of_Service 
+FROM air_flight 
+order by flight_id; .
+
+
+
+SELECT af.flight_id,af.from_location,af.to_location,af.total_seats, 
+(af.total_seats-afd.avilable_seats) No_of_Seats_Booked FROM  
+air_flight_details afd JOIN air_flight af ON afd.flight_id=af.flight_id 
+WHERE (af.total_seats-afd.avilable_seats)>(af.total_seats*0.1) 
+ORDER BY flight_id,No_of_Seats_Booked; 
+ 
+
+
+
+
+
+
+
+Queires
+1.	 Write a query to display the average monthly ticket cost for each flight in ABC  Airlines. The query should
+ display the Flight_Id,From_location,To_Location,Month Name as “Month_Name” and average price as “Average_Price”. 
+Display the records sorted in ascending order based on flight id and then by Month Name
+
+select flight_Id,From_location,To_location,monthname(flight_departure_date) Month_Name,AVG(price) Average_Price
+
+
+
+
+
+SELECT f.flight_id,f.from_location,f.to_location, 
+monthname(af.flight_departure_date) Month_Name, 
+AVG(price) Average_Price FROM air_flight f JOIN air_flight_details af 
+ON f.flight_id = af.flight_id WHERE f.airline_name = 'abc' 
+GROUP BY f.flight_id,f.from_location,f.to_location,Month_Name  
+ORDER BY f.flight_id, Month_Name; 
+ 
+ 
+2.	Write a query to display the number of flight services between locations in a month. 
+The Query should display From_Location, To_Location, Month as “Month_Name” and number of flight services as “No_of_Services”.  Hint: The Number of Services can be calculated from the number of scheduled departure dates of a flight. The records should be displayed in ascending order based on From_Location and then by To_Location and then by month name
+3.	Write a query to display profile id of the passenger(s) who has/have booked maximum number of tickets.In case of multiple records, display the records sorted in ascending order based on profile id
+4.	Write a query to display profile id of passenger(s) who booked minimum number of tickets. In case of multiple records, display the records sorted in ascending order based on profile id.
+5.	. Write a query to display number of flights between 6.00 AM and 6.00 PM from chennai. Hint Use FLIGHT_COUNT as alias name.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

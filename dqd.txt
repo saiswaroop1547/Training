@@ -1,0 +1,9 @@
+create table cart(cart_id int unsigned not null auto_increment,
+total decimal(10,0) not null,name varchar(10) default null,
+primary key(cart_id));
+
+create table items(id int unsigned not null auto_increment,
+cart_id int unsigned not null,item_id varchar(10) not null,
+item_total decimal(10,0) not null,quantity int(3) not null,
+primary key(id),key cart_id(cart_id),constraint items_ibfk_1 
+foreign key (cart_id) references cart(cart_id));

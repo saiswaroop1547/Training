@@ -1,0 +1,37 @@
+MOVIES_MASTER:-
+------------
+create table movies_master
+(movie_id varchar(6) PRIMARY KEY,movie_name varchar(30),
+release_year int(4),language varchar(15),rating int(1),
+duration_in_minutes int(3),movie_type varchar(20),
+movie_category varchar(30),director_name varchar(30),
+lead_actor_name1 varchar(40),lead_actor_name2 varchar(40),
+rental_cost int(3));
+
+LIBRARAY_CARD_MASTER:-
+---------------------
+create table library_card_master
+(card_id varchar(6),description varchar(30),
+amount int(4),number_of_years int(1));
+
+CUSTOMER_MASTER:-
+---------------
+create table customer_master(customer_id varchar(6),
+customer_name varchar(30),contact_no varchar(10),
+contact_address varchar(30),date_of_registration date,
+age int(3));
+
+CUSTOMER_ISSUE_DETAILS:-
+----------------------
+create table customer_issue_details(issue_id varchar(6),
+customer_id varchar(6),movie_id varchar(6),issue_date date,
+return_date date,actual_date_of_return date,
+foreign key(customer_id) references customer_master(customer_id),
+foreign key(movie_id) references movies_master(movie_id));
+
+CUSTOMER_CARD_DETAILS:-
+---------------------
+create table customer_card_details(customer_id varchar(6),
+card_id varchar(6),issue_date date,
+foreign key(customer_id) references customer_master(customer_id),
+foreign key(card_id) references library_card_master(card_id));

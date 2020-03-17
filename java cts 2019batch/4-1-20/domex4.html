@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+function appendList()
+{
+var x=document.createElement("ol");
+var child1=document.createElement("li");
+var list1=document.createTextNode("india");
+child1.appendChild(list1);
+
+var child2=document.createElement("li");
+var list2=document.createTextNode("japan");
+child2.appendChild(list2);
+
+var child3=document.createElement("li");
+var list3=document.createTextNode("china");
+child3.appendChild(list3);
+
+x.appendChild(child1);
+x.appendChild(child2);
+x.appendChild(child3);
+document.body.appendChild(x);
+}
+</script>
+</head>
+<body>
+<button onclick="appendList()">Create</button>
+</body>
+</html>

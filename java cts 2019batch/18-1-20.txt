@@ -1,0 +1,18 @@
+public void run(){}
+public static void satart();
+public boolean isAlive();
+public String getName();
+		System.out.println(t1.getName());
+public void getName();
+		t1.getName("parent thread");
+InterruptedException
+public boolean isDeamon();
+		System.gc();
+public void setDeamon(boolean bool);
+		t1.setDeamon(true);		
+public void setPriority(int Priority);
+public void sleep(long int ms);
+public void sleep(long int ms,long int ns);
+public void yield();
+public void join();
+public void synchronized();

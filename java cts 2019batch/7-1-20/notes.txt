@@ -1,0 +1,181 @@
+DDL:-
+----
+syntax:-
+------
+Create table <tablename>
+(columnname1 datatype1,
+columnname2 datatype2,
+---------------------,
+---------------------,
+columnnamen datatypen);
+
+example:-
+-------
+
+create table students
+(
+htno varchar(15),
+name varchar(20),
+branch varchar(20),
+college varchar(30)
+);
+
+desc tablename; //used to show table structure
+
+drop table tablename; //drops the table from the database
+
+alter table tablename add/modify/delete coloumnname [datatype]
+alter table students add collegecode varchar(10)
+ alter table students drop college;
+
+
+DML:-
+----
+insert delete update
+
+syntax:-
+------
+
+insert into tablename values(coloumn values);
+
+
+insert into students values('844345','swaroop','cse','47');
+
+insert into students values('866954','ankit','cse','143');
+
+select * from students;
+
+select htno,name from students;
+
+select all rows and all columns;--->select * from students;
+select all rows and specific columns;-------->select htno,name from students;
+select specific rows and all columns;------>select * from students where htno='844345';
+select specific rows and specific columns;---->select name from students where htno='844345';
+
+
+insert into students (column_list) values (list);
+insert into students(name,branch,collegecode) values('sam','ece','112');
+
+
+
+unique
+
+create table students1(
+htno int not null,
+name varchar(20) not null,
+clg varchar(25),
+unique(htno,name));
+
+
+primary key
+
+create table students2(
+htno int not null,
+name varchar(25) not null,
+clg varchar(25),
+primary key(id));
+
+foreign key
+
+create table customers(					
+id int not null,
+name varchar(25) not null,				
+ctype varchar(25),
+age int,
+primary key(id)
+);
+
+create table orders(
+orderid int not null,
+ordernumber int not null,
+id int,
+primary key(orderid),
+foreign key(id) references customers(id)
+);
+
+
+check
+
+create table students3(
+htno int not null,
+name varchar(25) not null,
+clg varchar(25),
+check(htno>=101 and htno<=200)
+);
+
+
+default
+
+create table orders1(
+id int not null,
+ordernumber int not null,
+orderdate date default getdate()
+);
+
+
+index
+
+create unique index indexname
+on tablename(column1,column2....);
+
+create index idxname
+on students(name);
+
+
+
+auto increment
+
+
+create table pearson(
+htno int not null auto_increment step 100,
+name varchar(25) not null,
+clg varchar(25),
+primary key(htno)
+);
+
+insert into emp(empno,ename,job,mgr,hiredate,salary,deptid) values(7499,'allen','salesman',7698,'1981-02-20','1600','300',30);
+
+insert into emp(empno,ename,job,mgr,hiredate,salary,com,deptid) values(7521,'ward','salesman',7698,'1981-02-22','1250','500',30);
+
+
+
+clauses
+------
+
+
+where
+
+select * from tablename where deptid=10;
+
+
+distinct
+
+select distinct column_name from tablename[where condition] order by column_name[asc | desc];
+
+group by
+
+count(empno) sum(sal) min(sal) max(sal)
+
+select columnname,aggregate_function,
+from epm where condition
+group by columnname;
+
+
+select ename,count(*) from emp group by deptno;
+
+select deptid,sum(salary) from emp group by deptid;
+
+having
+
+used only on group by clause if needed
+
+select job,sum(salary) as "sum of salary"
+from emp
+group by deptid
+having sum(salary)>1500;
+
+select deptid,sum(salary) as "sum of salary"
+from emp
+group by deptid
+having sum(salary)>1500;
+

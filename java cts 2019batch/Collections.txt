@@ -1,0 +1,100 @@
+collections
+-----------
+
+Collection is nothing but group of elements(objects) in a single entity.
+
+collections are dynamic
+
+collections are implemented based on the strict datastructures
+
+predeined methods are avilable for manipulation of data
+
+
+collection framework
+--------------------
+
+Classes and interfaces, which are used to represent the group of objects into a single object/entity and the methods to operate it
+
+
+collection
+can have four types of objects 
+list(Interface)-------->arraylist,linkedlist,vector,stack.
+---------------
+-> List arrange the elements in the linear fashion
+-> It will maintain the inserton order
+-> allows duplicates
+-> allows null values
+-> elements are accessed with the index values
+
+
+queue
+set
+map
+
+
+
+
+
+
+collections class methods
+-------------------------
+
+Collections.sort(elements);
+
+Collections.reverse(elements);
+
+Collections.copy(destlist,srclist);
+
+Collections.emptyIterator();
+
+Collections.checkedCollection(ListObject,typeofclass)
+
+boolean
+
+
+
+
+vector
+
+addElement()---->adds teh specified component to the end of this vector and increases the size by one
+
+ v.addElement("java");
+ v.addElement("program");
+ v.addElement("language");	
+ 
+elementAt() used to get the component at the specified index
+
+ v.elementAt(0);
+elements()  it returns the enumeration of the components of the vector 
+ Enumeration e=v.elements();
+firstElement() it is used to get the fiorst element at the vector
+ v.firstElement()
+
+insertElement()
+lastElement()
+removeElement()
+removeElementAt(3)
+
+
+
+stack
+
+
+boolean empty()
+
+Object peek()
+Object pop()
+Object push(Object element)
+int search(Object element)
+
+
+
+
+
+
+set
+
+not allow duplicates
+it will not retain insertion order
+null values are allowed only once
+linearity is not maintained

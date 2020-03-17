@@ -1,0 +1,187 @@
+string methods
+
+concat
+
+select concat(name,job) from emp;
+
+
+length
+
+ select length(mgr),char_length(ename) from emp;
+
+left
+
+select left(ename,3) from emp;
+
+right
+
+select right(ename,3) from emp;
+
+replace
+
+replace(string,old_string,new_string)
+
+substring
+
+substring(string,position)
+
+trim
+
+trim([{both|leadind|trailing}[removed_str]] from str)
+
+
+findinset
+
+find_in_set
+
+
+
+
+
+
+
+select datediff('1998-04-28','2020-01-08');
+
+
+select curdate();
+
+ select sysdate();
+
+
+
+select date_format(hiredate,'%D-%M-%Y')from emp;
+
+select date_format(hiredate,'%d-%m-%y')from emp;
+
+select date_add('1998-04-28 17:00:00',interval 1 minute) result;
+
+
+
+sspecial operators
+
+like-----> used for pattern comparisons
+
+mysql> select ename from emp where ename like '%r';
+
+mysql> select ename from emp where ename like 'a%';
+
+between | not between
+
+select ename from emp where salary between 1000 and 2000;
+
+select ename from emp where salary not between 1000 and 2000;
+
+in  |  not in
+
+ select ename from emp where job in('clerk','salesman');
+
+select ename from emp where job not in('clerk','salesman');
+
+
+query types
+
+root query
+
+select ename from emp where job in('clerk','salesman');
+
+
+
+select ename,sal from emp where deptno=10;
+
+
+
+parent query or outer query or main query
+
+
+mysql> select ename from emp where deptid=(select deptid from dept where deptname='sales');
+
+select ename from emp where deptid in (select deptid from dept where deptlocation='chicago' or deptlocation='boston');
+
+child query or inner query or sub query
+
+
+coalesce
+
+
+
+
+
+
+
+
+
+mysql> select ename,salary,salary+coalesce(com,0) from emp
+where deptid=(select deptid from dept where deptlocation='chicago');
+
+select ename,deptid,max(salary) from emp group by deptid;
+ select * from emp group by deptid having max(salary);
+select ename,salary,deptid from emp group by deptid having max(salary);
+
+
+
+
+
+
+
+
+different set operators
+
+
+union \unionall\ intersect\ minus
+
+
+joins
+
+
+
+
+
+
+
+
+select members.first_name,members.last_name,movies.title
+from members,movies
+where movies.id=members.movie_id;
+
+
+select A.title,B.first_name,B.last_name
+from movies as A
+left join members as B
+on B.movies_id=A.id;
+
+select A.first_name,A.last_name,B.title 
+from members as A
+right join movies as B
+on B.id=A.movies_id
+
+
+
+mysql> create table members(id int,first_name varchar(20),last_name varchar(20),movie_id int);
+
+
+mysql> select * from emp where deptid=(select deptid from emp where ename='ford');
+
+insert into members values(1,'adam','smith','1');
+
+
+
+
+id	first_name	last_name	movie_id
+1	Adam	          Smith	           1
+2	Ravi	          Kumar	           2
+3	Susan	        Davidson	    5
+4	Jenny	         Adriann	       8
+6	Lee	           Pong	            10
+
+
+id	title	                        category
+1	ASSASSIN'S CREED: EMBERS	Animations
+2	Real Steel(2012)	         Animations
+3	Alvin and the Chipmunks	          Animations
+4	The Adventures of Tin Tin	Animations
+5	Safe (2012)	                   Action
+6	Safe House(2012)	          Action
+7	GIA	                            18+
+8	Deadline 2009	                18+
+9	The Dirty Picture	             18+
+10	Marley and me	                  Romance

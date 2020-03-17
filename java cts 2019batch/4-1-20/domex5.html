@@ -1,0 +1,20 @@
+<html>
+<head>
+<script>
+var x=document.createElement("ol");
+function createList()
+{
+var list=document.createElement("li");
+var item=document.getElementById("country").value;
+var data=document.createTextNode(item);
+list.appendChild(data);
+x.appendChild(list);
+document.body.appendChild(x);
+}
+</script>
+</head>
+<body>
+enter country name:<input type="text" id="country"/>
+<button type="submit" onclick="createList()">additem</button>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<style>
+table,td
+{
+border:1px solid black;
+}
+</style>
+</head>
+<body>
+<table>
+<tr><td>enter your empid:</td><td><input type="text" id="no"/></td></tr>
+<tr><td>enter your name:</td><td><input type="text" id="nm"/></td></tr>
+<tr><td>enter the designation:</td><td><input type="text" id="role"></td></tr>
+</table>
+<button onClick="myFunction()">submit</button>
+<table id="myTable">
+</table><br>
+<script>
+var table=document.getElementById("myTable");
+function myFunction()
+{
+var row=table.insertRow();
+var cell1=row.insertCell(0);
+var cell2=row.insertCell(1);
+var cell3=row.insertCell(2);
+cell1.innerHTML=document.getElementById("no").value;
+cell2.innerHTML=document.getElementById("nm").value;
+cell3.innerHTML=document.getElementById("role").value;
+}
+</script>
+</body>
+</html>

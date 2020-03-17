@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+p
+{
+color:white;
+}
+h1
+{
+color:white;
+}
+body
+{
+background-color:blue;
+align:center;
+}
+lable
+{
+color:white;
+align:center;
+   
+}
+form
+{
+align:center;
+}
+Age
+</style>
+</head>
+<body>
+<title>
+Survey Page
+</title>
+<h1 id="title" align="center">PG Survey</h1>
+<p id="description" align="center">Thank you for taking the time to help us improve</p>
+<lable>Name  : <input type="text" id="name" placeholder="Enter your Name" required /><br>
+<lable>Email : <input type="email" id="email" placeholder="Enter your Email" required /><br>
+<lable>Age   :  <input type="number" id="number" min="10" max="99" placeholder="Age"/></br>
+<p>Which option best describes you?</p>
+      <select id="dropdown" name="role" required>
+        <option >Select the Type of Guest</option>
+        <option value="Temporary">Temporary</option>
+        <option value="Daily">Daily Basis</option>
+        <option value="Permenant">Permenant</option>
+        <option value="preferNo">Prefer not to say</option>
+        <option value="other">Other</option>
+      </select>
+<p>Which PG are you in?</p>
+<p>Would you recommend this PG to a friend?</p>
+      <label>
+        <input
+          name="user-recommend"
+          value="definitely"
+          type="radio"
+          checked/>Definitely</label>
+      <label>
+        <input
+          name="user-recommend"
+          value="maybe"
+          type="radio"/>Maybe</label>
+
+      <label><input
+          name="user-recommend"
+          value="not-sure"
+          type="radio"/>Not sure</label>
+
+</body>
+</html>

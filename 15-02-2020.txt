@@ -1,0 +1,139 @@
+SPRING FRAMEWORK:- USED FOR DEVELOPING AN APPLICATION LEVEL 
+DEVELOPMENT FRAMEWORK
+
+SPRING FRAMEWORK IS A PREDEFINED FLOW OF EXECUTION
+----------------
+USED TO CREATE ENTERPRISE LEVEL APPLICATIONS
+
+EJB(ENTERPRISE JAVA BEANS) USED BUT IT HAS SOME DRAWBACKS LIKE 
+
+->HEAVY WEIGHT COMPONENT 
+	 IT NEEDS A HUGE AMOUNT OF JAR FILES
+ 
+
+->AND TIGHTLY COUPLED
+	 BASIC DISADVANTAGE OF EJB 
+	THE CLASSES INVOLVED MUST BE INDEPENDANT TO EACH OTHER 
+	BUT IN EJB IT IS TIGHTLY COUPLED
+
+->DIRECT INJECTION (CONTROL) 
+	CREATING OBJECT FOR CLASS AND CALLING THE METHOD BY THE OBJECT IS 
+	KNOWN AS DIRECT INJECTION
+
+	AND INVERSION OF CONTROL WITHOUT THE ANY USER CREATING OBJECTS 
+	BY TAKING THE REFERENCE FROM A THIRD PARTY CREATED REFERENCES 
+DEFINES FLOW OF EXECUTION
+
+TO OVERCOME EJB DRAWBACKS 
+JAVABASED APPLICATION DEVELOPMENT FRAMEWORK
+
+SPEED SIMPLICITY PRODUCTIVITY
+
+ADVANTAGES
+
+->CONSTRUCTED BASED ON PLAIN OLD JAVA OBJECTS (POJOCLASSES)
+
+IT IS A EASILY TESTABLE FRAMEWORK(UNIT TESTING)
+
+IT IS A MODULAR(BUILT WITH MANY FUNCTIONS)
+
+HIBERNATE IS USED TO CONNECT TO DATABASE IN SPRING
+
+SPRING SUPPORTS CENTRAL EXCEPTIONAL HANDLING
+
+SPRING ALSO SUPPORT MVC PATTERN LIGHTWEIGHT,TRANSACTION MANAGEMENT
+AND SUPPORTS INVERSION OF CONTROL(IOC) AND DEPENDANCY INJECTION 
+ASPECT ORIENTED PROGRAMMING
+
+
+TO CREATE A SPRING PROGRAM 
+WE USE 
+1.BEAN CLASS (POJO) REPRESENTS DATA
+2.XML CONFIGURATION FILE--->BEAN PROPERTIES/BEAN RELATED DATA
+3.MAIN CLASS(PUBLIC STATIC VOID MAIN)
+
+
+
+internally spring container uses third party created object here
+where there is no need of creating any new object this shows that spring frame work is dependancy injection
+
+
+
+two types containers
+
+->spring bean factory container which has an implementaion class of xmlbeanfactory
+   XmlBeanFactory factory=new XmlBeanFactory (ClassPathResource("bean.xml"));
+	
+		it is only used in when the bean.xml resides in the local class path
+
+
+->spring applicationcontext container which has three implementaions of classes
+ 	1. ClassPathXmlApplicationContext --- with in the same class path like xmlbeanfactory
+
+	2. FileSystemXmlApplication ---- any where in the file system
+
+	3. WebXmlApplicationContext ---- in any web external repository
+
+Bean properties:
+----------------
+1.id
+2.class
+3.scope
+
+singleton->onr insta=nce per bean
+prototype->
+request->one bean instance per req
+session->one bean instance per session
+global-session->same as session  but can be used globally by every session
+
+
+
+4.constructer-arg->   will take the parameters for parameterized method in the bean
+5.properties->property values to be assigned
+6.autowire mode->process of assigning the variables some values automatically  
+by default it is true
+if we make it false it is not automatically assigned
+7.lazy-init mode
+8.init-method->init when a bean is created some function/method gets executed when the bean is executed
+9.destroy-method->destroy     
+AbstractApplicationContext
+factory.registerShutdownHook();
+
+
+beanpostprocessor
+apart from init and destroy it has two more initialization
+
+before init
+after init
+
+automatically detected by the spring container and executes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

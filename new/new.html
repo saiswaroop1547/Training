@@ -1,0 +1,123 @@
+<html >
+<header>
+<h1 id="title">Pg Survey Form</h1>
+    <p id="description" class="description text-center">
+      Thank you for taking the time to help us improve
+    </p>
+</header>
+<head>
+<style>
+p {
+  font-size: 1.125rem;
+font-style:italic;
+}
+body {
+text-align:center; 
+
+}
+h1,
+p {
+
+}
+div{
+border:solid;
+background-color:;
+}
+label {
+  font-size: 1.125rem;
+align:center;
+}
+</style>
+</head>
+<body>
+<form>
+<label id="name-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Enter your name"
+        required/><br>
+<label id="email-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your Email"
+        required/><br>
+<label id="number-label">Age</label>
+      <input
+        type="number"
+	name="age"
+        id="number"
+        min="10"
+	max="99"
+        placeholder="Age" pattern="[0-9]{2}"/><br>
+ <p>Which option best describes you?</p>
+      <select id="dropdown" name="role" required>
+        <option disabled selected value>Select</option>
+        <option value="temporary">Temporary</option>
+        <option value="permenant">Permenant</option>
+        <option value="daily">DailyBais</option>
+        <option value="preferNo">Prefer not to say</option>
+        <option value="other">Other</option>
+      </select><br>
+<p>Would you recommend freeCodeCamp to a friend?</p>
+      <label>
+        <input
+          name="user-recommend"
+          value="definitely"
+          type="radio"
+          checked/>Definitely</label><br>
+      <label>
+        <input
+          name="user-recommend"
+          value="maybe"
+          type="radio"/>Maybe</label><br>
+      <label><input
+          name="user-recommend"
+          value="not-sure"
+          type="radio"/>Not sure</label>
+<p>
+        What would you like to see improved?
+        <span class="clue">(Check all that apply)</span>
+      </p>
+        <input
+          name="prefer"
+          value="Water"
+          type="checkbox"/>Water</label>
+      <label><input
+          name="prefer"
+          value="Wifi"
+          type="checkbox"/>WIFI</label>
+      <label><input
+          name="prefer"
+          value="Food"
+          type="checkbox"/>Food</label>
+      <label><input
+          name="prefer"
+          value="Maintanance"
+          type="checkbox"/>Maintanance</label>
+      <label><input
+          name="prefer"
+          value="parking"
+          type="checkbox"
+          class="input-checkbox"/>Parking</label>
+      <label><input
+          name="prefer"
+          value="additional-resources"
+          type="checkbox"
+          class="input-checkbox"/>Additional Resources</label>
+ <p>Any comments or suggestions?</p>
+      <textarea
+        id="comments"
+        name="comment"
+        placeholder="Enter your comment here..."></textarea>
+<br>
+<button type="submit" id="submit">
+        Submit
+      </button>
+</form>
+</div>
+</body>
+</html>
